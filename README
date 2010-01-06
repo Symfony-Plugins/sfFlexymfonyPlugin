@@ -1,0 +1,88 @@
+sfFlexymfonyPlugin
+=========================
+
+Overview
+--------
+
+The sfFlexymfonyPlugin provides means for a developer to easily integrate flex applications into Symfony.
+The undelying Felx application uses a specific framework aimed to give developers a Symfony-like feel.
+
+
+Installation
+------------
+
+The easiest way to install the plugin is to use the plugin:install command of symfony.
+{{{
+	$ php symfony plugin:install sfFlexymfonyPlugin
+}}}
+
+ 
+{{{
+	$ symfony cc
+}}}
+
+Once installed you can generate your first Flexymfony application:
+
+{{{
+	$ php symfony generate:flexymfony-app myFlexymfony
+}}}
+
+Almost done. All you need to do now is to just fire up your Flex 3 builder and import the project.
+The project is found at myProject/apps/myFlexymfony/flex
+
+Once imported you have only two more steps to do. In the folder config you will find the config.yml file.
+{{{
+app:
+  url: http://www.example.com
+  enabled_modules:
+    - Default
+  default_module: Default
+  default_route: 
+      
+modules:
+  Default: DefaultModuleMediator
+    
+remoting:
+  service_id: flexymfony
+  services: {}
+}}}
+Just replace http://www.example.com with your application URL.
+Now open the services-config.xml file located in the root folder. Replace the string "[REPLACE ME]" with your application URL.
+
+At last, let Flex builder point the build output to your web directory. And you're good to go.
+
+That's it 
+
+Usage
+-----
+
+Detailed documentation still to follow. Please for now try to have a look at the DefaultModule example in your application.
+The underlying architecture is based on PureMVC so please also have a look at their documentations.
+Soon I will update the documentation and provide a full tutorial on how to use the framework.
+Also browse through the whole source code (there is not much in there so you will have a nice overview of what's going on).
+
+The default module is located in the lib folder of the flex application and its "Action" file is in lib/view/DefaultModuleMediator.as
+
+In order to use remote services please follow the instructions for the sfAmfPlugin. Once you have created a service add it to the configuration config.yml
+{{{
+app:
+  url: http://www.example.com
+  enabled_modules:
+    - Default
+  default_module: Default
+  default_route: 
+      
+modules:
+  Default: DefaultModuleMediator
+    
+remoting:
+  service_id: flexymfony
+  services:
+    my_service: com.MyService
+}}}
+
+Once this is done you can retrieve the service from anywhere in your Flex application
+{{{
+var myService:RemoteObject = RemoteServices.instance.getSerive("my_service");
+}}}
+And you can now call any of your services.

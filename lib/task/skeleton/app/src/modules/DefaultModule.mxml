@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modules:BaseModule xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="100%" height="100%" xmlns:modules="fxs.core.com.modules.*">
+	<mx:Script source="scripts/DefaultModule.as" />
+	
+	<modules:transitions>
+		<mx:Transition fromState="" toState="notfound">
+			<mx:Parallel duration="500">
+				<mx:Fade alphaFrom="1" alphaTo="0" target="{welcomeBox}" />
+				<mx:Fade alphaFrom="0" alphaTo="1" target="{notFoundBox}" />
+			</mx:Parallel>
+		</mx:Transition>
+		<mx:Transition fromState="notfound" toState="">
+			<mx:Parallel duration="500">
+				<mx:Fade alphaFrom="0" alphaTo="1" target="{welcomeBox}" />
+				<mx:Fade alphaFrom="1" alphaTo="0" target="{notFoundBox}" />
+			</mx:Parallel>
+		</mx:Transition>
+	</modules:transitions>
+	
+	<modules:states>
+		<mx:State name="notfound">
+			<mx:RemoveChild target="{welcomeBox}"/>
+			<mx:AddChild position="lastChild">
+				<mx:HBox horizontalCenter="0" verticalCenter="0" id="notFoundBox">
+					<mx:Image source="assets/images/error_404.png"/>
+					<mx:VBox height="100%">
+						<mx:Label text="Page Not Found" styleName="h1"/>
+						<mx:Text text="The page you requested does not exist or has been deleted" selectable="false"/>
+					</mx:VBox>
+				</mx:HBox>
+			</mx:AddChild>
+		</mx:State>
+	</modules:states>
+	<mx:HBox horizontalCenter="0" verticalCenter="0" id="welcomeBox">
+		<mx:Image source="assets/images/symfony-flex-logo.png"/>
+		<mx:VBox height="100%">
+			<mx:Label text="Flexymfony project installed" styleName="h1"/>
+			<mx:Text text="You have successfully installed your Flexymfony application. Please follow the guidlines for more information." selectable="false" width="100%"/>
+			<mx:Button label="Test Not Found" id="testButton"/>
+		</mx:VBox>
+	</mx:HBox>
+
+</modules:BaseModule>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fxs:BaseApplication xmlns:fxs="fxs.core.com.*" xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Style source="assets/styles/style.css" />
+	<mx:Script source="scripts/##APP_NAME##.as" />
+</fxs:BaseApplication>

@@ -1,0 +1,13 @@
+app:
+  url: http://www.example.com
+  enabled_modules:
+    - Default
+  default_module: Default
+  default_route: 
+      
+modules:
+  Default: DefaultModuleMediator
+    
+remoting:
+  service_id: flexymfony
+  services: {}

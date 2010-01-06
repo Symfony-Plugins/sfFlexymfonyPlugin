@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services-config>
+  <services>
+    <service id="flexymfony-service"
+          class="flex.messaging.services.RemotingService"
+          messageTypes="flex.messaging.messages.RemotingMessage">
+        <destination id="flexymfony">
+          <channels>
+            <channel ref="flexymfony-channel"/>
+          </channels>
+          <properties>
+            <source>*</source>
+          </properties>
+        </destination>
+    </service>
+  </services>
+    <channels>
+      <channel-definition id="flexymfony-channel"
+            class="mx.messaging.channels.AMFChannel">
+        <endpoint uri="http://[REPLACE_ME]/index.php/amfgateway"
+            class="flex.messaging.endpoints.AMFEndpoint"/>
+      </channel-definition>
+    </channels>
+</services-config>
