@@ -8,6 +8,7 @@ class sfFlexymfonyGenerateAppTask extends sfGenerateAppTask
 		$this->namespace = 'generate';
 		$this->name = 'flexymfony-app';
 		$this->briefDescription = 'Generates a new Flexymfony application';
+		$this->aliases = array();
 	}
 
 	protected function execute($arguments = array(), $options = array())
