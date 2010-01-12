@@ -47,7 +47,7 @@ remoting:
   services: {}
 }}}
 Just replace http://www.example.com with your application URL.
-Now open the services-config.xml file located in the root folder. Replace the string "[REPLACE ME]" with your application URL.
+Now open the services-config.xml file located in the root folder. Replace the string "REPLACE ME" with your application URL.
 
 At last, let Flex builder point the build output to your web directory. And you're good to go.
 
